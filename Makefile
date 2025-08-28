@@ -1,0 +1,2 @@
+check:
+	clear && cargo check
