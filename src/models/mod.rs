@@ -2,8 +2,7 @@
 pub mod driver;
 pub mod user;
 pub mod job;
-// We'll add other models later
+pub mod messages;
 
 pub use user::*;
-pub use job::*;
 pub use driver::*;

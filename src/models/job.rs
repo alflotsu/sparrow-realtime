@@ -3,6 +3,7 @@
 use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
 use uuid::Uuid;
+use std::fmt;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub enum JobStatus {
@@ -26,6 +27,17 @@ pub enum JobPriority {
     Express,     // Fast delivery (within 4 hours)
     SameDay,     // Same day delivery
     Emergency,   // Immediate delivery (within 1 hour)
+}
+
+impl fmt::Display for JobPriority {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            JobPriority::Standard => write!(f, "standard"),
+            JobPriority::Express => write!(f, "express"),
+            JobPriority::SameDay => write!(f, "same_day"),
+            JobPriority::Emergency => write!(f, "emergency"),
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]

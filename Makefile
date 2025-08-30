@@ -1,2 +1,2 @@
 check:
-	clear && cargo check
+	clear && cargo check --all
